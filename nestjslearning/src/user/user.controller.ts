@@ -13,8 +13,8 @@ import { JwtGuard } from 'src/auth/guard';
 @Controller('users')
 export class UserController {
   @Get('me')
-  async getProfile(@GetUser() user: User) {
-    // console.log({ request: req.user });
+  async getProfile(@GetUser() user: User, @GetUser('email') email: string) {
+    //console.log(email);
     return user;
   }
 }
